@@ -3,8 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Crimson Cipher | 血色密码</title>
+    <meta name="description" content="The Crimson Cipher - A multilingual detective novel combining cryptography with compelling storytelling">
+    <meta name="keywords" content="detective, mystery, cryptography, multilingual, fiction, novel, thriller">
+    <meta name="author" content="Fictional Detective Novel Project">
+    <title>The Crimson Cipher | 血色密码 - Multilingual Detective Novel</title>
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    
+    <!-- Fallback inline styles for critical CSS -->
     <style>
+        /* Critical CSS for immediate rendering */
         body {
             font-family: 'Georgia', serif;
             line-height: 1.6;
@@ -137,7 +146,26 @@
 
         <div class="footer">
             <p>Choose your language above to begin the mystery | 选择上面的语言开始神秘之旅</p>
+            <p id="reading-time"></p>
         </div>
     </div>
+    
+    <!-- JavaScript for interactivity -->
+    <script src="assets/js/interactive.js"></script>
+    
+    <!-- Optional: Service Worker for PWA features -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(function(registration) {
+                        console.log('ServiceWorker registration successful');
+                    })
+                    .catch(function(err) {
+                        console.log('ServiceWorker registration failed');
+                    });
+            });
+        }
+    </script>
 </body>
 </html>

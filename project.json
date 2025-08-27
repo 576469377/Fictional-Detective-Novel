@@ -2,13 +2,30 @@
   "title": "The Crimson Cipher | 血色密码",
   "description": "A multilingual detective novel project available in English and Chinese - An epic mystery spanning 12 chapters",
   "author": "Fictional Detective Novel Project",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "languages": ["en", "zh"],
   "defaultLanguage": "en",
   "chapters": 12,
   "genre": "Detective Fiction",
-  "status": "In Development - Expanded Super Novel",
+  "status": "Active Development - Super Novel",
   "lastUpdated": "2024-12-19",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/576469377/Fictional-Detective-Novel"
+  },
+  "keywords": ["detective", "mystery", "cryptography", "multilingual", "fiction", "novel", "thriller"],
+  "license": "MIT",
+  "targets": {
+    "wordCount": 25000,
+    "chaptersComplete": 12,
+    "languages": 2,
+    "supplementaryDocs": 6
+  },
+  "progress": {
+    "chaptersComplete": 2,
+    "wordCountCurrent": 8500,
+    "completionPercentage": 34
+  },
   "structure": {
     "languages": {
       "en": {
@@ -59,7 +76,7 @@
           "en": "en/chapters/chapter03.md",
           "zh": "zh/chapters/chapter03.md"
         },
-        "status": "planned"
+        "status": "complete"
       },
       {
         "number": 4,
@@ -187,6 +204,20 @@
     "readersGuide": {
       "en": "docs/readers-guide-en.md",
       "zh": "docs/readers-guide-zh.md"
-    }
+    },
+    "projectDocumentation": "docs/project-documentation.md",
+    "roadmap": "docs/roadmap.md"
+  },
+  "assets": {
+    "css": "assets/css/styles.css",
+    "javascript": "assets/js/interactive.js",
+    "images": "assets/images/",
+    "webInterface": "index.html"
+  },
+  "projectFiles": {
+    "license": "LICENSE",
+    "contributing": "CONTRIBUTING.md",
+    "readme": "README.md",
+    "projectConfig": "project.json"
   }
 }
