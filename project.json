@@ -7,7 +7,7 @@
   "defaultLanguage": "en",
   "chapters": 12,
   "genre": "Detective Fiction",
-  "status": "Active Development - Super Novel",
+  "status": "Complete - Super Novel",
   "lastUpdated": "2024-12-19",
   "repository": {
     "type": "git",
@@ -22,9 +22,9 @@
     "supplementaryDocs": 6
   },
   "progress": {
-    "chaptersComplete": 8,
-    "wordCountCurrent": 18175,
-    "completionPercentage": 72
+    "chaptersComplete": 12,
+    "wordCountCurrent": 25972,
+    "completionPercentage": 100
   },
   "structure": {
     "languages": {
@@ -148,7 +148,7 @@
           "en": "en/chapters/chapter09.md",
           "zh": "zh/chapters/chapter09.md"
         },
-        "status": "planned"
+        "status": "complete"
       },
       {
         "number": 10,
@@ -160,7 +160,7 @@
           "en": "en/chapters/chapter10.md",
           "zh": "zh/chapters/chapter10.md"
         },
-        "status": "planned"
+        "status": "complete"
       },
       {
         "number": 11,
@@ -172,7 +172,7 @@
           "en": "en/chapters/chapter11.md",
           "zh": "zh/chapters/chapter11.md"
         },
-        "status": "planned"
+        "status": "complete"
       },
       {
         "number": 12,
@@ -184,7 +184,7 @@
           "en": "en/chapters/chapter12.md",
           "zh": "zh/chapters/chapter12.md"
         },
-        "status": "planned"
+        "status": "complete"
       }
     ]
   },
