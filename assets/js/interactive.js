@@ -2,6 +2,8 @@
 
 document.addEventListener('DOMContentLoaded', function() {
     initializeInterface();
+    initializeReadingProgress();
+    initializeBookmarks();
 });
 
 function initializeInterface() {
@@ -25,6 +27,260 @@ function initializeInterface() {
     
     // Add reading time estimates
     addReadingTimeEstimates();
+    
+    // Initialize theme switching
+    initializeThemeSwitch();
+    
+    // Add accessibility enhancements
+    enhanceAccessibility();
+}
+
+// Enhanced reading progress tracking
+function initializeReadingProgress() {
+    // Track reading progress on chapter pages
+    if (isChapterPage()) {
+        trackScrollProgress();
+        displayReadingStats();
+    }
+}
+
+function isChapterPage() {
+    return window.location.pathname.includes('/chapters/') || 
+           document.querySelector('.chapter-content') !== null;
+}
+
+function trackScrollProgress() {
+    let lastScrollPosition = 0;
+    const progressBar = createProgressBar();
+    
+    window.addEventListener('scroll', function() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const documentHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPercent = (scrollTop / documentHeight) * 100;
+        
+        // Update visual progress bar
+        progressBar.style.width = Math.min(scrollPercent, 100) + '%';
+        
+        // Save reading position every 10% progress
+        if (Math.floor(scrollPercent / 10) > Math.floor(lastScrollPosition / 10)) {
+            saveReadingPosition(scrollPercent);
+        }
+        
+        lastScrollPosition = scrollPercent;
+    });
+}
+
+function createProgressBar() {
+    const existingBar = document.getElementById('reading-progress-bar');
+    if (existingBar) return existingBar.querySelector('.progress-fill');
+    
+    const progressContainer = document.createElement('div');
+    progressContainer.id = 'reading-progress-bar';
+    progressContainer.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: rgba(255,255,255,0.2);
+        z-index: 1000;
+    `;
+    
+    const progressFill = document.createElement('div');
+    progressFill.className = 'progress-fill';
+    progressFill.style.cssText = `
+        height: 100%;
+        background: linear-gradient(90deg, #8B0000, #DC143C);
+        width: 0%;
+        transition: width 0.3s ease;
+    `;
+    
+    progressContainer.appendChild(progressFill);
+    document.body.appendChild(progressContainer);
+    
+    return progressFill;
+}
+
+function saveReadingPosition(percent) {
+    const chapterPath = window.location.pathname;
+    const readingData = {
+        position: percent,
+        timestamp: new Date().toISOString(),
+        chapter: chapterPath
+    };
+    
+    localStorage.setItem(`crimson-cipher-progress-${chapterPath}`, JSON.stringify(readingData));
+    
+    // Update overall reading statistics
+    updateOverallProgress();
+}
+
+function updateOverallProgress() {
+    const chapters = ['chapter01', 'chapter02', 'chapter03', 'chapter04'];
+    let totalProgress = 0;
+    let chaptersStarted = 0;
+    
+    chapters.forEach(chapter => {
+        const saved = localStorage.getItem(`crimson-cipher-progress-/en/chapters/${chapter}.md`);
+        if (saved) {
+            const data = JSON.parse(saved);
+            totalProgress += data.position;
+            chaptersStarted++;
+        }
+    });
+    
+    const overallProgress = chaptersStarted > 0 ? totalProgress / chapters.length : 0;
+    localStorage.setItem('crimson-cipher-overall-progress', overallProgress.toFixed(1));
+}
+
+function displayReadingStats() {
+    const statsContainer = createStatsContainer();
+    const chapterPath = window.location.pathname;
+    const saved = localStorage.getItem(`crimson-cipher-progress-${chapterPath}`);
+    
+    if (saved) {
+        const data = JSON.parse(saved);
+        const lastRead = new Date(data.timestamp);
+        const timeAgo = getTimeAgo(lastRead);
+        
+        statsContainer.innerHTML = `
+            <div class="reading-stats">
+                <span>📖 Progress: ${data.position.toFixed(0)}%</span>
+                <span>🕒 Last read: ${timeAgo}</span>
+            </div>
+        `;
+    }
+}
+
+function createStatsContainer() {
+    let container = document.getElementById('reading-stats-container');
+    if (!container) {
+        container = document.createElement('div');
+        container.id = 'reading-stats-container';
+        container.style.cssText = `
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 12px;
+            z-index: 1000;
+        `;
+        document.body.appendChild(container);
+    }
+    return container;
+}
+
+function getTimeAgo(date) {
+    const now = new Date();
+    const diffInMs = now - date;
+    const diffInHours = Math.floor(diffInMs / (1000 * 60 * 60));
+    const diffInDays = Math.floor(diffInHours / 24);
+    
+    if (diffInDays > 0) return `${diffInDays} day${diffInDays > 1 ? 's' : ''} ago`;
+    if (diffInHours > 0) return `${diffInHours} hour${diffInHours > 1 ? 's' : ''} ago`;
+    return 'Recently';
+}
+
+// Bookmark functionality
+function initializeBookmarks() {
+    addBookmarkButton();
+    displayBookmarkStatus();
+}
+
+function addBookmarkButton() {
+    if (!isChapterPage()) return;
+    
+    const bookmarkBtn = document.createElement('button');
+    bookmarkBtn.id = 'bookmark-button';
+    bookmarkBtn.innerHTML = '🔖';
+    bookmarkBtn.title = 'Bookmark this chapter';
+    bookmarkBtn.style.cssText = `
+        position: fixed;
+        bottom: 80px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: none;
+        background: linear-gradient(135deg, #8B0000, #DC143C);
+        color: white;
+        font-size: 20px;
+        cursor: pointer;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        z-index: 1000;
+        transition: transform 0.2s ease;
+    `;
+    
+    bookmarkBtn.addEventListener('click', toggleBookmark);
+    bookmarkBtn.addEventListener('mouseenter', function() {
+        this.style.transform = 'scale(1.1)';
+    });
+    bookmarkBtn.addEventListener('mouseleave', function() {
+        this.style.transform = 'scale(1)';
+    });
+    
+    document.body.appendChild(bookmarkBtn);
+}
+
+function toggleBookmark() {
+    const chapterPath = window.location.pathname;
+    const bookmarks = JSON.parse(localStorage.getItem('crimson-cipher-bookmarks') || '[]');
+    
+    const existingIndex = bookmarks.findIndex(b => b.path === chapterPath);
+    
+    if (existingIndex > -1) {
+        bookmarks.splice(existingIndex, 1);
+        showNotification('Bookmark removed');
+    } else {
+        const bookmark = {
+            path: chapterPath,
+            title: document.title,
+            timestamp: new Date().toISOString()
+        };
+        bookmarks.push(bookmark);
+        showNotification('Chapter bookmarked');
+    }
+    
+    localStorage.setItem('crimson-cipher-bookmarks', JSON.stringify(bookmarks));
+    displayBookmarkStatus();
+}
+
+function displayBookmarkStatus() {
+    const bookmarkBtn = document.getElementById('bookmark-button');
+    if (!bookmarkBtn) return;
+    
+    const chapterPath = window.location.pathname;
+    const bookmarks = JSON.parse(localStorage.getItem('crimson-cipher-bookmarks') || '[]');
+    const isBookmarked = bookmarks.some(b => b.path === chapterPath);
+    
+    bookmarkBtn.innerHTML = isBookmarked ? '🔖' : '📖';
+    bookmarkBtn.title = isBookmarked ? 'Remove bookmark' : 'Bookmark this chapter';
+}
+
+function showNotification(message) {
+    const notification = document.createElement('div');
+    notification.textContent = message;
+    notification.style.cssText = `
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(0,0,0,0.9);
+        color: white;
+        padding: 15px 25px;
+        border-radius: 8px;
+        z-index: 10000;
+        font-weight: bold;
+    `;
+    
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+        notification.remove();
+    }, 2000);
 }
 
 function addCharacterCardEffects() {
