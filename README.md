@@ -89,6 +89,7 @@
 
 - **[Character Profiles](docs/character-profiles-en.md)** - Deep character backgrounds and motivations
 - **[Cryptography Guide](docs/cryptography-guide-en.md)** - Educational content about real codes and ciphers  
+- **[Interactive Cryptography](docs/cryptography-interactive.md)** - Hands-on cipher demonstrations and challenges
 - **[Timeline](docs/timeline-en.md)** - Detailed chronology of events and investigation
 - **[Reader's Guide](docs/readers-guide-en.md)** - Discussion questions and literary analysis
 
@@ -132,8 +133,8 @@ Fictional-Detective-Novel/
 
 | Metric | Progress | Target |
 |--------|----------|--------|
-| **Chapters Complete** | 2/12 (17%) | 12 chapters |
-| **Word Count** | 8,500+ | 25,000+ words |
+| **Chapters Complete** | 4/12 (33%) | 12 chapters |
+| **Word Count** | 12,500+ | 25,000+ words |
 | **Languages** | 2 ✅ | English & Chinese |
 | **Documentation** | 85% | Complete guides |
 
@@ -143,8 +144,9 @@ Fictional-Detective-Novel/
 
 - ✅ **Chapter 1**: The First Message *(Complete)*
 - ✅ **Chapter 2**: Shadows in the Rain *(Complete)*  
-- 🔄 **Chapter 3**: The Pattern Emerges *(In Progress)*
-- ⏳ **Chapters 4-12**: *(Planned)*
+- ✅ **Chapter 3**: The Pattern Emerges *(Complete)*
+- ✅ **Chapter 4**: Deeper Into Darkness *(Complete)*
+- ⏳ **Chapters 5-12**: *(Planned)*
 
 ---
 
