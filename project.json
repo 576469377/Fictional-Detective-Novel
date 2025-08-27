@@ -1,0 +1,89 @@
+{
+  "title": "The Crimson Cipher | 血色密码",
+  "description": "A multilingual detective novel project available in English and Chinese",
+  "author": "Fictional Detective Novel Project",
+  "version": "1.0.0",
+  "languages": ["en", "zh"],
+  "defaultLanguage": "en",
+  "chapters": 5,
+  "genre": "Detective Fiction",
+  "status": "In Development",
+  "lastUpdated": "2024-08-27",
+  "structure": {
+    "languages": {
+      "en": {
+        "name": "English",
+        "flag": "🇺🇸",
+        "path": "en/",
+        "indexFile": "index.md"
+      },
+      "zh": {
+        "name": "中文",
+        "flag": "🇨🇳", 
+        "path": "zh/",
+        "indexFile": "index.md"
+      }
+    },
+    "chapters": [
+      {
+        "number": 1,
+        "title": {
+          "en": "The First Message",
+          "zh": "第一条信息"
+        },
+        "files": {
+          "en": "en/chapters/chapter01.md",
+          "zh": "zh/chapters/chapter01.md"
+        }
+      },
+      {
+        "number": 2,
+        "title": {
+          "en": "Shadows in the Rain",
+          "zh": "雨中阴影"
+        },
+        "files": {
+          "en": "en/chapters/chapter02.md",
+          "zh": "zh/chapters/chapter02.md"
+        },
+        "status": "planned"
+      },
+      {
+        "number": 3,
+        "title": {
+          "en": "The Pattern Emerges",
+          "zh": "模式浮现"
+        },
+        "files": {
+          "en": "en/chapters/chapter03.md",
+          "zh": "zh/chapters/chapter03.md"
+        },
+        "status": "planned"
+      },
+      {
+        "number": 4,
+        "title": {
+          "en": "Deeper Into Darkness",
+          "zh": "深入黑暗"
+        },
+        "files": {
+          "en": "en/chapters/chapter04.md",
+          "zh": "zh/chapters/chapter04.md"
+        },
+        "status": "planned"
+      },
+      {
+        "number": 5,
+        "title": {
+          "en": "The Final Revelation",
+          "zh": "最终揭示"
+        },
+        "files": {
+          "en": "en/chapters/chapter05.md",
+          "zh": "zh/chapters/chapter05.md"
+        },
+        "status": "planned"
+      }
+    ]
+  }
+}
