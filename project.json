@@ -1,14 +1,14 @@
 {
   "title": "The Crimson Cipher | 血色密码",
-  "description": "A multilingual detective novel project available in English and Chinese",
+  "description": "A multilingual detective novel project available in English and Chinese - An epic mystery spanning 12 chapters",
   "author": "Fictional Detective Novel Project",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "languages": ["en", "zh"],
   "defaultLanguage": "en",
-  "chapters": 5,
+  "chapters": 12,
   "genre": "Detective Fiction",
-  "status": "In Development",
-  "lastUpdated": "2024-08-27",
+  "status": "In Development - Expanded Super Novel",
+  "lastUpdated": "2024-12-19",
   "structure": {
     "languages": {
       "en": {
@@ -34,7 +34,8 @@
         "files": {
           "en": "en/chapters/chapter01.md",
           "zh": "zh/chapters/chapter01.md"
-        }
+        },
+        "status": "complete"
       },
       {
         "number": 2,
@@ -46,7 +47,7 @@
           "en": "en/chapters/chapter02.md",
           "zh": "zh/chapters/chapter02.md"
         },
-        "status": "planned"
+        "status": "complete"
       },
       {
         "number": 3,
@@ -83,7 +84,109 @@
           "zh": "zh/chapters/chapter05.md"
         },
         "status": "planned"
+      },
+      {
+        "number": 6,
+        "title": {
+          "en": "Echoes of the Past",
+          "zh": "过去的回声"
+        },
+        "files": {
+          "en": "en/chapters/chapter06.md",
+          "zh": "zh/chapters/chapter06.md"
+        },
+        "status": "planned"
+      },
+      {
+        "number": 7,
+        "title": {
+          "en": "The Cryptographer's Legacy",
+          "zh": "密码学家的遗产"
+        },
+        "files": {
+          "en": "en/chapters/chapter07.md",
+          "zh": "zh/chapters/chapter07.md"
+        },
+        "status": "planned"
+      },
+      {
+        "number": 8,
+        "title": {
+          "en": "Betrayal and Truth",
+          "zh": "背叛与真相"
+        },
+        "files": {
+          "en": "en/chapters/chapter08.md",
+          "zh": "zh/chapters/chapter08.md"
+        },
+        "status": "planned"
+      },
+      {
+        "number": 9,
+        "title": {
+          "en": "The Underground Network",
+          "zh": "地下网络"
+        },
+        "files": {
+          "en": "en/chapters/chapter09.md",
+          "zh": "zh/chapters/chapter09.md"
+        },
+        "status": "planned"
+      },
+      {
+        "number": 10,
+        "title": {
+          "en": "Race Against Time",
+          "zh": "与时间赛跑"
+        },
+        "files": {
+          "en": "en/chapters/chapter10.md",
+          "zh": "zh/chapters/chapter10.md"
+        },
+        "status": "planned"
+      },
+      {
+        "number": 11,
+        "title": {
+          "en": "The Master's Gambit",
+          "zh": "大师的策略"
+        },
+        "files": {
+          "en": "en/chapters/chapter11.md",
+          "zh": "zh/chapters/chapter11.md"
+        },
+        "status": "planned"
+      },
+      {
+        "number": 12,
+        "title": {
+          "en": "Crimson Dawn",
+          "zh": "血色黎明"
+        },
+        "files": {
+          "en": "en/chapters/chapter12.md",
+          "zh": "zh/chapters/chapter12.md"
+        },
+        "status": "planned"
       }
     ]
+  },
+  "additionalContent": {
+    "characterProfiles": {
+      "en": "docs/character-profiles-en.md",
+      "zh": "docs/character-profiles-zh.md"
+    },
+    "cryptographyGuide": {
+      "en": "docs/cryptography-guide-en.md",
+      "zh": "docs/cryptography-guide-zh.md"
+    },
+    "timeline": {
+      "en": "docs/timeline-en.md",
+      "zh": "docs/timeline-zh.md"
+    },
+    "readersGuide": {
+      "en": "docs/readers-guide-en.md",
+      "zh": "docs/readers-guide-zh.md"
+    }
   }
 }
