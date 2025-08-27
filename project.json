@@ -22,9 +22,9 @@
     "supplementaryDocs": 6
   },
   "progress": {
-    "chaptersComplete": 2,
-    "wordCountCurrent": 8500,
-    "completionPercentage": 34
+    "chaptersComplete": 8,
+    "wordCountCurrent": 18175,
+    "completionPercentage": 72
   },
   "structure": {
     "languages": {
@@ -88,7 +88,7 @@
           "en": "en/chapters/chapter04.md",
           "zh": "zh/chapters/chapter04.md"
         },
-        "status": "planned"
+        "status": "complete"
       },
       {
         "number": 5,
@@ -100,7 +100,7 @@
           "en": "en/chapters/chapter05.md",
           "zh": "zh/chapters/chapter05.md"
         },
-        "status": "planned"
+        "status": "complete"
       },
       {
         "number": 6,
@@ -112,7 +112,7 @@
           "en": "en/chapters/chapter06.md",
           "zh": "zh/chapters/chapter06.md"
         },
-        "status": "planned"
+        "status": "complete"
       },
       {
         "number": 7,
@@ -124,7 +124,7 @@
           "en": "en/chapters/chapter07.md",
           "zh": "zh/chapters/chapter07.md"
         },
-        "status": "planned"
+        "status": "complete"
       },
       {
         "number": 8,
@@ -136,7 +136,7 @@
           "en": "en/chapters/chapter08.md",
           "zh": "zh/chapters/chapter08.md"
         },
-        "status": "planned"
+        "status": "complete"
       },
       {
         "number": 9,
