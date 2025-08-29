@@ -133,10 +133,10 @@ Fictional-Detective-Novel/
 
 | Metric | Progress | Target |
 |--------|----------|--------|
-| **Chapters Complete** | 4/12 (33%) | 12 chapters |
-| **Word Count** | 12,500+ | 25,000+ words |
+| **Chapters Complete** | 12/12 (100%) | 12 chapters |
+| **Word Count** | 26,000+ | 25,000+ words |
 | **Languages** | 2 ✅ | English & Chinese |
-| **Documentation** | 85% | Complete guides |
+| **Documentation** | 95% | Complete guides |
 
 </div>
 
@@ -146,7 +146,14 @@ Fictional-Detective-Novel/
 - ✅ **Chapter 2**: Shadows in the Rain *(Complete)*  
 - ✅ **Chapter 3**: The Pattern Emerges *(Complete)*
 - ✅ **Chapter 4**: Deeper Into Darkness *(Complete)*
-- ⏳ **Chapters 5-12**: *(Planned)*
+- ✅ **Chapter 5**: The Final Revelation *(Complete)*
+- ✅ **Chapter 6**: Echoes of the Past *(Complete)*
+- ✅ **Chapter 7**: The Cryptographer's Legacy *(Complete)*
+- ✅ **Chapter 8**: Betrayal and Truth *(Complete)*
+- ✅ **Chapter 9**: The Underground Network *(Complete)*
+- ✅ **Chapter 10**: Race Against Time *(Complete)*
+- ✅ **Chapter 11**: The Master's Gambit *(Complete)*
+- ✅ **Chapter 12**: Crimson Dawn *(Complete)*
 
 ---
 
