@@ -7,7 +7,7 @@
   "defaultLanguage": "en",
   "chapters": 12,
   "genre": "Detective Fiction",
-  "status": "Active Development - Super Novel",
+  "status": "Complete - Super Novel",
   "lastUpdated": "2024-12-19",
   "repository": {
     "type": "git",
@@ -22,9 +22,9 @@
     "supplementaryDocs": 6
   },
   "progress": {
-    "chaptersComplete": 2,
-    "wordCountCurrent": 8500,
-    "completionPercentage": 34
+    "chaptersComplete": 12,
+    "wordCountCurrent": 25972,
+    "completionPercentage": 100
   },
   "structure": {
     "languages": {
@@ -88,7 +88,7 @@
           "en": "en/chapters/chapter04.md",
           "zh": "zh/chapters/chapter04.md"
         },
-        "status": "planned"
+        "status": "complete"
       },
       {
         "number": 5,
@@ -100,7 +100,7 @@
           "en": "en/chapters/chapter05.md",
           "zh": "zh/chapters/chapter05.md"
         },
-        "status": "planned"
+        "status": "complete"
       },
       {
         "number": 6,
@@ -112,7 +112,7 @@
           "en": "en/chapters/chapter06.md",
           "zh": "zh/chapters/chapter06.md"
         },
-        "status": "planned"
+        "status": "complete"
       },
       {
         "number": 7,
@@ -124,7 +124,7 @@
           "en": "en/chapters/chapter07.md",
           "zh": "zh/chapters/chapter07.md"
         },
-        "status": "planned"
+        "status": "complete"
       },
       {
         "number": 8,
@@ -136,7 +136,7 @@
           "en": "en/chapters/chapter08.md",
           "zh": "zh/chapters/chapter08.md"
         },
-        "status": "planned"
+        "status": "complete"
       },
       {
         "number": 9,
@@ -148,7 +148,7 @@
           "en": "en/chapters/chapter09.md",
           "zh": "zh/chapters/chapter09.md"
         },
-        "status": "planned"
+        "status": "complete"
       },
       {
         "number": 10,
@@ -160,7 +160,7 @@
           "en": "en/chapters/chapter10.md",
           "zh": "zh/chapters/chapter10.md"
         },
-        "status": "planned"
+        "status": "complete"
       },
       {
         "number": 11,
@@ -172,7 +172,7 @@
           "en": "en/chapters/chapter11.md",
           "zh": "zh/chapters/chapter11.md"
         },
-        "status": "planned"
+        "status": "complete"
       },
       {
         "number": 12,
@@ -184,7 +184,7 @@
           "en": "en/chapters/chapter12.md",
           "zh": "zh/chapters/chapter12.md"
         },
-        "status": "planned"
+        "status": "complete"
       }
     ]
   },
