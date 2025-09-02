@@ -90,6 +90,8 @@
 - **[Character Profiles](docs/character-profiles-en.md)** - Deep character backgrounds and motivations
 - **[Cryptography Guide](docs/cryptography-guide-en.md)** - Educational content about real codes and ciphers  
 - **[Interactive Cryptography](docs/cryptography-interactive.md)** - Hands-on cipher demonstrations and challenges
+- **[Interactive Timeline](docs/timeline-interactive.md)** - Visual timeline with filtering and navigation
+- **[Content Search](docs/content-search.md)** - Advanced search across all project content
 - **[Timeline](docs/timeline-en.md)** - Detailed chronology of events and investigation
 - **[Reader's Guide](docs/readers-guide-en.md)** - Discussion questions and literary analysis
 
