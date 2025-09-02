@@ -1,5 +1,5 @@
 // Performance Monitoring for The Crimson Cipher
-// Tracks reading patterns and user engagement
+// Tracks reading patterns and user engagement with privacy-focused approach
 
 class CrimsonCipherAnalytics {
     constructor() {
@@ -8,13 +8,21 @@ class CrimsonCipherAnalytics {
             pageViews: [],
             interactions: [],
             readingProgress: {},
-            achievements: []
+            achievements: [],
+            preferences: this.loadPreferences()
         };
         
+        this.privacyMode = this.sessionData.preferences.privacy || 'minimal';
         this.initialize();
     }
     
     initialize() {
+        // Respect user privacy preferences
+        if (this.privacyMode === 'none') {
+            console.log('Analytics disabled by user preference');
+            return;
+        }
+        
         // Track page load performance
         this.trackPageLoad();
         
@@ -24,8 +32,14 @@ class CrimsonCipherAnalytics {
         // Track user interactions
         this.trackInteractions();
         
-        // Send periodic updates
+        // Track educational progress
+        this.trackEducationalProgress();
+        
+        // Send periodic updates (local storage only)
         this.startPeriodicReporting();
+        
+        // Initialize reading statistics
+        this.initializeReadingStats();
     }
     
     trackPageLoad() {
@@ -36,7 +50,8 @@ class CrimsonCipherAnalytics {
                     loadTime: perfData.loadEventEnd - perfData.fetchStart,
                     domContentLoaded: perfData.domContentLoadedEventEnd - perfData.fetchStart,
                     firstPaint: this.getFirstPaint(),
-                    url: window.location.pathname
+                    url: this.anonymizeUrl(window.location.pathname),
+                    timestamp: Date.now()
                 });
             }
         });
@@ -200,6 +215,133 @@ class CrimsonCipherAnalytics {
         };
         
         return allData;
+    }
+    
+    // Additional tracking methods
+    trackEducationalEngagement() {
+        // Track crypto demo usage
+        document.addEventListener('click', (e) => {
+            if (e.target.matches('.crypto-demo button, .challenge button')) {
+                this.logEvent('crypto_demo_use', {
+                    element: e.target.textContent,
+                    timestamp: Date.now(),
+                    page: this.anonymizeUrl(window.location.pathname)
+                });
+            }
+        });
+        
+        // Track search usage
+        document.addEventListener('input', (e) => {
+            if (e.target.matches('#main-search, #pattern-input')) {
+                this.logEvent('search_usage', {
+                    searchType: e.target.id,
+                    timestamp: Date.now()
+                });
+            }
+        });
+    }
+    
+    trackReadingMilestones() {
+        const checkMilestones = () => {
+            const scrollPercent = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+            const currentPage = this.anonymizeUrl(window.location.pathname);
+            
+            if (!this.sessionData.readingProgress[currentPage]) {
+                this.sessionData.readingProgress[currentPage] = { maxScroll: 0, milestones: [] };
+            }
+            
+            const pageProgress = this.sessionData.readingProgress[currentPage];
+            pageProgress.maxScroll = Math.max(pageProgress.maxScroll, scrollPercent);
+            
+            // Track reading milestones (25%, 50%, 75%, 100%)
+            const milestones = [25, 50, 75, 100];
+            milestones.forEach(milestone => {
+                if (scrollPercent >= milestone && !pageProgress.milestones.includes(milestone)) {
+                    pageProgress.milestones.push(milestone);
+                    this.logEvent('reading_milestone', {
+                        milestone: milestone,
+                        page: currentPage,
+                        timestamp: Date.now()
+                    });
+                    
+                    if (milestone === 100) {
+                        this.checkAchievements('page_complete', currentPage);
+                    }
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', checkMilestones, { passive: true });
+    }
+    
+    trackEducationalProgress() {
+        // Track cryptography challenge completions
+        const originalCheckChallenge = window.checkChallenge;
+        if (typeof originalCheckChallenge === 'function') {
+            window.checkChallenge = (challengeNumber) => {
+                const result = originalCheckChallenge(challengeNumber);
+                this.logEvent('crypto_challenge', {
+                    challenge: challengeNumber,
+                    timestamp: Date.now(),
+                    page: this.anonymizeUrl(window.location.pathname)
+                });
+                return result;
+            };
+        }
+    }
+    
+    checkAchievements(type, data) {
+        const achievements = {
+            'page_complete': `Completed reading: ${data}`,
+            'first_chapter': 'Read your first chapter',
+            'crypto_explorer': 'Used cryptography demonstrations',
+            'pattern_master': 'Completed all challenges',
+            'language_learner': 'Switched between languages'
+        };
+        
+        if (achievements[type] && !this.sessionData.achievements.includes(type)) {
+            this.sessionData.achievements.push(type);
+            this.logEvent('achievement_unlocked', {
+                achievement: type,
+                description: achievements[type],
+                timestamp: Date.now()
+            });
+            
+            // Save achievements persistently
+            const savedAchievements = JSON.parse(localStorage.getItem('crimson-cipher-achievements') || '[]');
+            if (!savedAchievements.includes(type)) {
+                savedAchievements.push(type);
+                localStorage.setItem('crimson-cipher-achievements', JSON.stringify(savedAchievements));
+            }
+        }
+    }
+    
+    initializeReadingStats() {
+        // Load saved reading progress
+        const savedProgress = localStorage.getItem('crimson-cipher-reading-progress');
+        if (savedProgress) {
+            this.sessionData.readingProgress = JSON.parse(savedProgress);
+        }
+        
+        // Save progress periodically
+        setInterval(() => {
+            localStorage.setItem('crimson-cipher-reading-progress', JSON.stringify(this.sessionData.readingProgress));
+        }, 30000); // Save every 30 seconds
+    }
+    
+    loadPreferences() {
+        return JSON.parse(localStorage.getItem('crimson-cipher-preferences') || '{"privacy": "minimal"}');
+    }
+    
+    anonymizeUrl(url) {
+        // Remove any potentially identifying information from URLs
+        return url.replace(/\/[^\/]*$/, '/page').replace(/\d+/g, 'N');
+    }
+    
+    getFirstPaint() {
+        const paintEntries = performance.getEntriesByType('paint');
+        const firstPaint = paintEntries.find(entry => entry.name === 'first-paint');
+        return firstPaint ? firstPaint.startTime : null;
     }
 }
 

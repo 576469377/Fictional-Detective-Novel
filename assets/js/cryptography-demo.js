@@ -347,3 +347,229 @@ function showCryptographyTips() {
         }, 8000);
     }, 2000);
 }
+
+// Challenge System
+let challengeProgress = JSON.parse(localStorage.getItem('crimsonCipherProgress') || '{}');
+
+function checkChallenge(challengeNumber) {
+    const answers = {
+        1: "THIS IS A TEST MESSAGE",
+        2: "COME BACK AT EIGHT THIRTY", 
+        3: "THIS CIPHER DATES BACK TO EIGHTEEN FORTY SEVEN",
+        4: "MORSTURE"
+    };
+    
+    const inputId = `challenge${challengeNumber}-answer`;
+    const resultId = `challenge${challengeNumber}-result`;
+    const userAnswer = document.getElementById(inputId).value.toUpperCase().trim();
+    const resultDiv = document.getElementById(resultId);
+    
+    if (userAnswer === answers[challengeNumber]) {
+        resultDiv.innerHTML = '<span style="color: #28a745;">✅ Correct! Excellent cryptographic skills!</span>';
+        challengeProgress[challengeNumber] = true;
+        updateChallengeProgress();
+        showCryptographyNotification(`Challenge ${challengeNumber} completed! 🎉`);
+    } else {
+        resultDiv.innerHTML = '<span style="color: #dc3545;">❌ Not quite right. Try again!</span>';
+    }
+    
+    localStorage.setItem('crimsonCipherProgress', JSON.stringify(challengeProgress));
+}
+
+function updateChallengeProgress() {
+    const completed = Object.keys(challengeProgress).filter(key => challengeProgress[key]).length;
+    const total = 4;
+    const percentage = (completed / total) * 100;
+    
+    const progressFill = document.getElementById('progress-fill');
+    const progressText = document.getElementById('progress-text');
+    
+    if (progressFill) {
+        progressFill.style.width = `${percentage}%`;
+    }
+    
+    if (progressText) {
+        progressText.textContent = `${completed} of ${total} challenges completed`;
+    }
+    
+    // Show special message when all challenges are complete
+    if (completed === total && !challengeProgress.allComplete) {
+        showCryptographyNotification('🏆 Congratulations! You\'ve mastered all the cryptographic challenges!');
+        challengeProgress.allComplete = true;
+        localStorage.setItem('crimsonCipherProgress', JSON.stringify(challengeProgress));
+    }
+}
+
+// Advanced Pattern Analysis
+function initializePatternAnalysis() {
+    const analyzeBtn = document.getElementById('analyze-patterns');
+    if (!analyzeBtn) return;
+    
+    analyzeBtn.addEventListener('click', performPatternAnalysis);
+}
+
+function performPatternAnalysis() {
+    const input = document.getElementById('pattern-input').value.toUpperCase();
+    const resultsContainer = document.getElementById('pattern-results');
+    
+    if (!input.trim()) {
+        resultsContainer.innerHTML = '<p style="color: #dc3545;">Please enter text to analyze.</p>';
+        return;
+    }
+    
+    // Analyze letter frequency
+    const letterFreq = analyzeLetterFrequency(input);
+    displayLetterFrequencyChart(letterFreq, document.getElementById('frequency-visualization'));
+    
+    // Analyze bigrams
+    const bigrams = analyzeBigrams(input);
+    displayBigramAnalysis(bigrams, document.getElementById('bigram-results'));
+    
+    // Analyze word patterns
+    const wordPatterns = analyzeWordPatterns(input);
+    displayWordPatterns(wordPatterns, document.getElementById('word-pattern-results'));
+}
+
+function analyzeLetterFrequency(text) {
+    const frequencies = {};
+    const letters = text.replace(/[^A-Z]/g, '');
+    
+    // Initialize all letters
+    for (let i = 0; i < 26; i++) {
+        frequencies[String.fromCharCode(65 + i)] = 0;
+    }
+    
+    // Count frequencies
+    for (let char of letters) {
+        if (frequencies[char] !== undefined) {
+            frequencies[char]++;
+        }
+    }
+    
+    // Convert to percentages
+    const total = letters.length;
+    for (let letter in frequencies) {
+        frequencies[letter] = (frequencies[letter] / total) * 100;
+    }
+    
+    return frequencies;
+}
+
+function analyzeBigrams(text) {
+    const bigrams = {};
+    const cleanText = text.replace(/[^A-Z]/g, '');
+    
+    for (let i = 0; i < cleanText.length - 1; i++) {
+        const bigram = cleanText.substr(i, 2);
+        bigrams[bigram] = (bigrams[bigram] || 0) + 1;
+    }
+    
+    // Return top 10 bigrams
+    return Object.entries(bigrams)
+        .sort(([,a], [,b]) => b - a)
+        .slice(0, 10);
+}
+
+function analyzeWordPatterns(text) {
+    const words = text.split(/\s+/).filter(word => word.length > 0);
+    const patterns = {};
+    
+    words.forEach(word => {
+        const length = word.length;
+        patterns[length] = (patterns[length] || 0) + 1;
+    });
+    
+    const totalWords = words.length;
+    const avgLength = words.reduce((sum, word) => sum + word.length, 0) / totalWords;
+    
+    return { patterns, totalWords, avgLength };
+}
+
+function displayLetterFrequencyChart(frequencies, container) {
+    const englishFreq = {
+        'A': 8.12, 'B': 1.49, 'C': 2.78, 'D': 4.25, 'E': 12.02, 'F': 2.23,
+        'G': 2.02, 'H': 6.09, 'I': 6.97, 'J': 0.15, 'K': 0.77, 'L': 4.03,
+        'M': 2.41, 'N': 6.75, 'O': 7.51, 'P': 1.93, 'Q': 0.10, 'R': 5.99,
+        'S': 6.33, 'T': 9.06, 'U': 2.76, 'V': 0.98, 'W': 2.36, 'X': 0.15,
+        'Y': 1.97, 'Z': 0.07
+    };
+    
+    let chartHTML = '<div class="frequency-chart-container">';
+    chartHTML += '<div class="chart-legend"><span class="cipher-legend">Your Text</span><span class="english-legend">English</span></div>';
+    
+    for (let letter of 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') {
+        const cipherFreq = frequencies[letter] || 0;
+        const expectedFreq = englishFreq[letter];
+        
+        chartHTML += `
+            <div class="frequency-comparison">
+                <span class="letter-label">${letter}</span>
+                <div class="frequency-bars">
+                    <div class="bar cipher-bar" style="height: ${Math.max(cipherFreq * 8, 2)}px" title="${letter}: ${cipherFreq.toFixed(1)}%"></div>
+                    <div class="bar english-bar" style="height: ${Math.max(expectedFreq * 8, 2)}px" title="English ${letter}: ${expectedFreq.toFixed(1)}%"></div>
+                </div>
+            </div>
+        `;
+    }
+    
+    chartHTML += '</div>';
+    container.innerHTML = chartHTML;
+}
+
+function displayBigramAnalysis(bigrams, container) {
+    let html = '<div class="bigram-analysis"><h5>Most Common Letter Pairs:</h5>';
+    
+    if (bigrams.length === 0) {
+        html += '<p>No letter pairs found. Text may be too short for meaningful analysis.</p>';
+    } else {
+        html += '<div class="bigram-list">';
+        bigrams.forEach(([bigram, count], index) => {
+            html += `<span class="bigram-item" style="background-color: hsl(${index * 30}, 70%, 85%)">${bigram} (${count})</span>`;
+        });
+        html += '</div>';
+        html += '<p class="analysis-note">Common English bigrams: TH, HE, IN, ER, AN, RE, ED, ND, ON, EN</p>';
+    }
+    
+    html += '</div>';
+    container.innerHTML = html;
+}
+
+function displayWordPatterns(data, container) {
+    const { patterns, totalWords, avgLength } = data;
+    
+    let html = '<div class="word-pattern-analysis">';
+    html += `<p><strong>Total Words:</strong> ${totalWords}</p>`;
+    html += `<p><strong>Average Word Length:</strong> ${avgLength.toFixed(1)} letters</p>`;
+    html += '<h5>Word Length Distribution:</h5>';
+    html += '<div class="word-length-chart">';
+    
+    const maxCount = Math.max(...Object.values(patterns));
+    
+    for (let length = 1; length <= Math.max(...Object.keys(patterns).map(Number)); length++) {
+        const count = patterns[length] || 0;
+        const percentage = (count / totalWords) * 100;
+        const barHeight = (count / maxCount) * 100;
+        
+        if (count > 0) {
+            html += `
+                <div class="word-length-bar">
+                    <div class="bar" style="height: ${barHeight}%" title="${count} words of length ${length} (${percentage.toFixed(1)}%)"></div>
+                    <span class="length-label">${length}</span>
+                </div>
+            `;
+        }
+    }
+    
+    html += '</div>';
+    html += '<p class="analysis-note">English text typically has average word length of 4-5 letters</p>';
+    html += '</div>';
+    
+    container.innerHTML = html;
+}
+
+// Initialize new features when DOM loads
+document.addEventListener('DOMContentLoaded', function() {
+    initializeCryptographyDemos();
+    initializePatternAnalysis();
+    updateChallengeProgress(); // Load saved progress
+});
