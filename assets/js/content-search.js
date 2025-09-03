@@ -35,18 +35,18 @@ function initializeContentIndex() {
     contentIndex = {
         chapters: {
             en: [
-                { id: 'ch1-en', title: 'The First Message', path: '../en/chapters/chapter01.md', content: 'Detective Sarah Chen receives her first cryptographic challenge when Emma Rodriguez disappears...' },
-                { id: 'ch2-en', title: 'Shadows in the Rain', path: '../en/chapters/chapter02.md', content: 'The investigation deepens as patterns emerge from the coded messages...' },
-                { id: 'ch3-en', title: 'The Pattern Emerges', path: '../en/chapters/chapter03.md', content: 'Historical connections to 1847 case revealed through university research...' },
-                { id: 'ch4-en', title: 'Deeper Into Darkness', path: '../en/chapters/chapter04.md', content: 'Steganography challenge leads to courthouse basement discovery...' },
-                { id: 'ch5-en', title: 'The Final Revelation', path: '../en/chapters/chapter05.md', content: 'Underground network exposed, conspiracy reaches higher levels...' },
-                { id: 'ch6-en', title: 'Echoes of the Past', path: '../en/chapters/chapter06.md', content: 'Family connections and historical patterns converge...' },
-                { id: 'ch7-en', title: 'The Cryptographer\'s Legacy', path: '../en/chapters/chapter07.md', content: 'Academic research reveals deeper conspiracy connections...' },
-                { id: 'ch8-en', title: 'Betrayal and Truth', path: '../en/chapters/chapter08.md', content: 'Personal stakes rise as betrayals are revealed...' },
-                { id: 'ch9-en', title: 'The Underground Network', path: '../en/chapters/chapter09.md', content: 'Multi-generational conspiracy exposed in full scope...' },
-                { id: 'ch10-en', title: 'Race Against Time', path: '../en/chapters/chapter10.md', content: 'Final phase prevention becomes critical mission...' },
-                { id: 'ch11-en', title: 'The Master\'s Gambit', path: '../en/chapters/chapter11.md', content: 'Cipher Master\'s ultimate plan revealed and countered...' },
-                { id: 'ch12-en', title: 'Crimson Dawn', path: '../en/chapters/chapter12.md', content: 'Resolution of both contemporary and historical mysteries...' }
+                { id: 'ch1-en', title: 'The First Message', path: '../en/chapters/chapter01.md', content: 'Detective Sarah Chen receives first cryptographic challenge when Emma Rodriguez disappears. Rain-soaked investigation begins with cipher wheel marking and mysterious courier...' },
+                { id: 'ch2-en', title: 'Shadows in the Rain', path: '../en/chapters/chapter02.md', content: 'Investigation deepens as patterns emerge from coded messages. Dr. Marcus Webb joins case, revealing forensic expertise and personal connection to cryptographic crimes...' },
+                { id: 'ch3-en', title: 'The Pattern Emerges', path: '../en/chapters/chapter03.md', content: 'Historical connections to 1847 case revealed through university research. Captain Morrison family connection discovered, linking past and present Cipher Master cases...' },
+                { id: 'ch4-en', title: 'Deeper Into Darkness', path: '../en/chapters/chapter04.md', content: 'Steganography challenge leads to courthouse basement discovery. Personal connection to Sarah\'s brother David revealed, expanding conspiracy to multi-generational scope...' },
+                { id: 'ch5-en', title: 'The Final Revelation', path: '../en/chapters/chapter05.md', content: 'Underground network exposed as Emma and Professor Vasquez rescued. David Morrison\'s ultimate plan revealed involving temporal cryptographic patterns and quantum connections...' },
+                { id: 'ch6-en', title: 'Echoes of the Past', path: '../en/chapters/chapter06.md', content: 'Historical Anomalies Task Force recruitment. Archive of impossibilities revealed showing temporal information transfer across centuries. Marcus Webb\'s dark past exposed...' },
+                { id: 'ch7-en', title: 'The Cryptographer\'s Legacy', path: '../en/chapters/chapter07.md', content: 'Dr. Elizabeth Hartwell recruitment reveals systematic educational program spanning centuries. Philadelphia Natural Philosopher collection contains impossible quantum knowledge from 1798...' },
+                { id: 'ch8-en', title: 'Betrayal and Truth', path: '../en/chapters/chapter08.md', content: 'Network leadership crisis as ethical boundaries tested. Trust relationships strained under pressure of impossible knowledge and hidden agendas...' },
+                { id: 'ch9-en', title: 'The Network Revealed', path: '../en/chapters/chapter09.md', content: 'Multi-generational conspiracy fully exposed. Network structure and hidden protocols revealed showing decades of careful manipulation and protection...' },
+                { id: 'ch10-en', title: 'Temporal Investigations', path: '../en/chapters/chapter10.md', content: 'Time-based information patterns investigated. Advanced cryptographic systems reveal future knowledge embedded in historical documents...' },
+                { id: 'ch11-en', title: 'The Grand Design', path: '../en/chapters/chapter11.md', content: 'Ultimate purpose of centuries-long educational program revealed. Humanity\'s guided intellectual evolution toward advanced understanding exposed...' },
+                { id: 'ch12-en', title: 'The Pattern Complete', path: '../en/chapters/chapter12.md', content: 'Resolution of both contemporary and historical mysteries. Sarah\'s role in larger educational framework established for future investigations...' }
             ],
             zh: [
                 { id: 'ch1-zh', title: '第一条信息', path: '../zh/chapters/chapter01.md', content: '陈莎拉警探收到她的第一个密码挑战，当艾玛·罗德里格斯失踪时...' },
@@ -55,20 +55,35 @@ function initializeContentIndex() {
             ]
         },
         characters: [
-            { id: 'sarah-chen', title: 'Detective Sarah Chen', content: 'Lead investigator specializing in cryptography and pattern analysis...' },
-            { id: 'emma-rodriguez', title: 'Emma Rodriguez', content: 'Missing graphic designer, catalyst for the investigation...' },
-            { id: 'marcus-webb', title: 'Dr. Marcus Webb', content: 'Forensic expert in digital forensics and medicine...' },
-            { id: 'cipher-master', title: 'The Cipher Master', content: 'Antagonist with advanced cryptographic knowledge...' }
+            { id: 'sarah-chen', title: 'Detective Sarah Chen', content: 'Lead investigator specializing in cryptography and pattern analysis. Lost brother David to mysterious circumstances. Now member of Historical Anomalies Task Force investigating temporal information transfer...' },
+            { id: 'emma-rodriguez', title: 'Emma Rodriguez', content: 'Missing graphic designer and catalyst for the investigation. Specialist in historical reproductions for museums. Becomes key witness to David Morrison\'s temporal research conspiracy...' },
+            { id: 'marcus-webb', title: 'Dr. Marcus Webb', content: 'Forensic expert in digital forensics and medicine. Former academic with troubled past involving 1990s researcher deaths. Now reformed network member guiding Sarah\'s development...' },
+            { id: 'david-morrison', title: 'David Morrison', content: 'Graduate student and descendant of 1847 detective. Brilliant but obsessed researcher who discovered temporal anomalies. Creator of modern Cipher Master conspiracy...' },
+            { id: 'rebecca-martinez', title: 'Dr. Rebecca Martinez', content: 'Director of National Institute for Temporal Research and Historical Anomalies Task Force. Oversees network of researchers investigating impossible knowledge across time periods...' },
+            { id: 'elizabeth-hartwell', title: 'Dr. Elizabeth Hartwell', content: 'Retired physics professor who independently discovered temporal anomalies in scientific literature. Recruited by Sarah, brings theory of systematic educational program spanning centuries...' },
+            { id: 'cipher-master-1847', title: 'The Original Cipher Master (1847)', content: 'Historical criminal with impossible advanced knowledge. Created cryptographic systems centuries ahead of his time. Central mystery figure whose work influences modern investigations...' },
+            { id: 'natural-philosopher', title: 'The Natural Philosopher (E.N.)', content: 'Mysterious 18th-century figure with anachronistic knowledge. Left collection at University of Pennsylvania containing impossible quantum mechanical principles from 1798...' }
         ],
         documentation: [
-            { id: 'crypto-guide', title: 'Cryptography Guide', content: 'Understanding codes and ciphers used in the novel...' },
-            { id: 'timeline', title: 'Timeline', content: 'Historical events and investigation chronology...' },
-            { id: 'readers-guide', title: 'Reader\'s Guide', content: 'Discussion questions and literary analysis...' }
+            { id: 'crypto-guide-en', title: 'Cryptography Guide (English)', content: 'Comprehensive guide to codes and ciphers used throughout the novel. Caesar ciphers, frequency analysis, steganography, and quantum cryptographic principles...' },
+            { id: 'crypto-guide-zh', title: 'Cryptography Guide (Chinese)', content: '小说中使用的密码和暗号的综合指南。凯撒密码，频率分析，隐写术和量子密码学原理...' },
+            { id: 'timeline-en', title: 'Timeline (English)', content: 'Complete chronology from 1847 Cipher Master case through modern investigation. Historical connections and temporal anomaly discoveries across centuries...' },
+            { id: 'timeline-zh', title: 'Timeline (Chinese)', content: '从1847年密码大师案到现代调查的完整年表。跨世纪的历史联系和时间异常发现...' },
+            { id: 'character-profiles-en', title: 'Character Profiles (English)', content: 'Detailed psychological profiles and development arcs for all major characters. Sarah Chen, Marcus Webb, David Morrison, and network members...' },
+            { id: 'character-profiles-zh', title: 'Character Profiles (Chinese)', content: '所有主要角色的详细心理档案和发展轨迹。莎拉·陈，马库斯·韦伯，大卫·莫里森和网络成员...' },
+            { id: 'readers-guide-en', title: 'Reader\'s Guide (English)', content: 'Discussion questions, literary analysis, and educational framework for understanding cryptographic elements and character development...' },
+            { id: 'readers-guide-zh', title: 'Reader\'s Guide (Chinese)', content: '讨论问题，文学分析，以及理解密码元素和角色发展的教育框架...' },
+            { id: 'project-docs', title: 'Project Documentation', content: 'Technical documentation, contribution guidelines, and project structure information for developers and contributors...' }
         ],
         cryptography: [
-            { id: 'caesar-cipher', title: 'Caesar Cipher', content: 'Ancient substitution cipher used by Julius Caesar...' },
-            { id: 'frequency-analysis', title: 'Frequency Analysis', content: 'Statistical method for breaking substitution ciphers...' },
-            { id: 'steganography', title: 'Steganography', content: 'Art of hiding messages in plain sight...' }
+            { id: 'caesar-cipher', title: 'Caesar Cipher', content: 'Ancient substitution cipher used by Julius Caesar. Simple shift-based encryption fundamental to cryptographic education. Featured prominently in early chapters...' },
+            { id: 'frequency-analysis', title: 'Frequency Analysis', content: 'Statistical method for breaking substitution ciphers developed by Al-Kindi in 9th century. Key technique used by Sarah Chen in pattern recognition...' },
+            { id: 'steganography', title: 'Steganography', content: 'Art of hiding messages in plain sight. Digital image analysis and metadata embedding techniques crucial to Chapter 4 courthouse basement discovery...' },
+            { id: 'jefferson-disk', title: 'Jefferson Disk Cipher', content: 'Cylindrical cipher device invented by Thomas Jefferson in 1795. Mechanical encryption method featured in Chapter 3 university research sequences...' },
+            { id: 'vigenere-cipher', title: 'Vigenère Cipher', content: 'Polyalphabetic substitution cipher using keyword-based encryption. Advanced technique demonstrating progression from simple to complex cryptographic methods...' },
+            { id: 'quantum-cryptography', title: 'Quantum Cryptography', content: 'Advanced encryption using quantum mechanical principles. Anachronistic knowledge found in Natural Philosopher collection defies historical timeline...' },
+            { id: 'temporal-ciphers', title: 'Temporal Information Ciphers', content: 'Theoretical cryptographic systems designed to preserve information across time periods. Central to Dr. Hartwell\'s educational framework theory...' },
+            { id: 'pattern-recognition', title: 'Cryptographic Pattern Recognition', content: 'Advanced analytical techniques for identifying cipher types and discovering hidden structure in encrypted communications. Sarah Chen\'s specialty...' }
         ]
     };
     
