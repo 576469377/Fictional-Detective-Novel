@@ -1,0 +1,180 @@
+name: Content Validation & Deployment
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    # Run daily at 2 AM UTC to check for broken links
+    - cron: '0 2 * * *'
+
+jobs:
+  validate-content:
+    runs-on: ubuntu-latest
+    name: Validate Project Content
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        
+    - name: Install dependencies
+      run: |
+        npm install -g markdownlint-cli
+        npm install -g markdown-link-check
+        
+    - name: Run content validation script
+      run: |
+        chmod +x ./validate-content.sh
+        ./validate-content.sh
+        
+    - name: Lint Markdown files
+      run: |
+        markdownlint --config .markdownlint.json **/*.md || echo "Markdown linting completed with warnings"
+        
+    - name: Check internal links
+      run: |
+        find . -name "*.md" -not -path "./node_modules/*" -not -path "./.git/*" | xargs -I {} markdown-link-check {} --config .markdown-link-check.json || echo "Link checking completed with warnings"
+        
+    - name: Validate project structure
+      run: |
+        echo "Checking required directories..."
+        test -d "en/chapters" || exit 1
+        test -d "zh/chapters" || exit 1
+        test -d "docs" || exit 1
+        test -d "assets" || exit 1
+        echo "✅ Project structure validation passed"
+        
+    - name: Count content metrics
+      run: |
+        echo "📊 Content Metrics:"
+        echo "English chapters: $(ls en/chapters/*.md 2>/dev/null | wc -l)"
+        echo "Chinese chapters: $(ls zh/chapters/*.md 2>/dev/null | wc -l)"
+        echo "Documentation files: $(ls docs/*.md 2>/dev/null | wc -l)"
+        echo "Total word count: $(wc -w en/chapters/*.md | tail -1 | awk '{print $1}')"
+        
+  test-interactive-features:
+    runs-on: ubuntu-latest
+    name: Test Interactive Features
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        
+    - name: Install Playwright
+      run: |
+        npm install -g playwright
+        npx playwright install chromium
+        
+    - name: Test web interface
+      run: |
+        # Start a simple HTTP server
+        python3 -m http.server 8080 &
+        SERVER_PID=$!
+        
+        # Wait for server to start
+        sleep 3
+        
+        # Test that main pages load
+        curl -f http://localhost:8080/index.html > /dev/null || exit 1
+        curl -f http://localhost:8080/en/index.md > /dev/null || exit 1
+        curl -f http://localhost:8080/zh/index.md > /dev/null || exit 1
+        
+        # Test JavaScript files are valid
+        node -c assets/js/interactive.js
+        node -c assets/js/cryptography-demo.js
+        node -c assets/js/content-search.js
+        node -c assets/js/timeline-interactive.js
+        
+        # Clean up
+        kill $SERVER_PID
+        
+        echo "✅ Interactive features validation passed"
+        
+  validate-translations:
+    runs-on: ubuntu-latest
+    name: Validate Translations
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Check translation completeness
+      run: |
+        echo "🌍 Checking translation completeness..."
+        
+        # Count English vs Chinese chapters
+        EN_CHAPTERS=$(ls en/chapters/*.md 2>/dev/null | wc -l)
+        ZH_CHAPTERS=$(ls zh/chapters/*.md 2>/dev/null | wc -l)
+        
+        echo "English chapters: $EN_CHAPTERS"
+        echo "Chinese chapters: $ZH_CHAPTERS"
+        
+        if [ "$EN_CHAPTERS" -ne "$ZH_CHAPTERS" ]; then
+          echo "⚠️ Warning: Chapter count mismatch between languages"
+          exit 1
+        fi
+        
+        # Check documentation translations
+        EN_DOCS=$(ls docs/*-en.md 2>/dev/null | wc -l)
+        ZH_DOCS=$(ls docs/*-zh.md 2>/dev/null | wc -l)
+        
+        echo "English documentation: $EN_DOCS"
+        echo "Chinese documentation: $ZH_DOCS"
+        
+        if [ "$EN_DOCS" -ne "$ZH_DOCS" ]; then
+          echo "⚠️ Warning: Documentation translation mismatch"
+        fi
+        
+        echo "✅ Translation validation completed"
+        
+  build-and-deploy:
+    needs: [validate-content, test-interactive-features, validate-translations]
+    runs-on: ubuntu-latest
+    name: Build and Deploy
+    if: github.ref == 'refs/heads/main'
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Generate site statistics
+      run: |
+        echo "📈 Generating site statistics..."
+        
+        # Create a simple stats file
+        cat > site-stats.json << EOF
+        {
+          "generated": "$(date -u +"%Y-%m-%dT%H:%M:%SZ")",
+          "chapters": {
+            "english": $(ls en/chapters/*.md 2>/dev/null | wc -l),
+            "chinese": $(ls zh/chapters/*.md 2>/dev/null | wc -l)
+          },
+          "word_count": $(wc -w en/chapters/*.md | tail -1 | awk '{print $1}'),
+          "documentation_files": $(ls docs/*.md 2>/dev/null | wc -l),
+          "last_updated": "$(git log -1 --format=%cd --date=iso)"
+        }
+        EOF
+        
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      if: github.ref == 'refs/heads/main'
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: .
+        exclude_assets: '.github,.git,node_modules'
+        
+    - name: Update deployment status
+      run: |
+        echo "🚀 Deployment completed successfully"
+        echo "Site available at: https://${{ github.repository_owner }}.github.io/Fictional-Detective-Novel/"
