@@ -232,6 +232,124 @@ For readers interested in deeper cryptographic analysis:
     </div>
 </div>
 
+---
+
+## 🕰️ Advanced Temporal Cryptography (From Chapter 7)
+
+Explore the theoretical cryptographic systems discovered by Dr. Hartwell in the novel:
+
+<div id="temporal-crypto-demo" class="crypto-demo">
+    <h3>Temporal Information Preservation Simulation:</h3>
+    
+    <div class="demo-controls">
+        <label for="temporal-message">Message to preserve across time:</label>
+        <textarea id="temporal-message" placeholder="Enter knowledge to preserve for future discovery..." rows="3"></textarea>
+        
+        <label for="time-delay">Simulated time delay (years):</label>
+        <input type="range" id="time-delay" min="10" max="200" value="50">
+        <span id="delay-display">50 years</span>
+        
+        <label for="discovery-readiness">Society readiness level (1-10):</label>
+        <input type="range" id="discovery-readiness" min="1" max="10" value="5">
+        <span id="readiness-display">5</span>
+        
+        <button id="temporal-encrypt">Preserve for Future</button>
+        <button id="temporal-discover">Simulate Discovery</button>
+    </div>
+    
+    <div class="demo-output">
+        <h4>Preserved Information:</h4>
+        <div id="temporal-output" class="cipher-output"></div>
+        
+        <h4>Discovery Analysis:</h4>
+        <div id="discovery-analysis" class="analysis-output"></div>
+    </div>
+</div>
+
+### Educational Framework Theory
+
+Based on Dr. Hartwell's research in Chapter 7, this simulation demonstrates how advanced knowledge might be preserved and revealed according to societal readiness:
+
+<div class="framework-explanation">
+    <h4>🎯 Adaptive Learning Principles</h4>
+    <ul>
+        <li><strong>Timing Optimization</strong>: Information revealed when society has the intellectual framework to understand it</li>
+        <li><strong>Complexity Gradation</strong>: Advanced concepts introduced through progressive educational sequences</li>
+        <li><strong>Cultural Preparation</strong>: Knowledge packaged in culturally appropriate formats for different time periods</li>
+        <li><strong>Verification Systems</strong>: Built-in methods for confirming the authenticity and accuracy of preserved information</li>
+    </ul>
+    
+    <h4>🔬 The Natural Philosopher's Method</h4>
+    <p>The Philadelphia collection demonstrated sophisticated preservation techniques:</p>
+    <ul>
+        <li><strong>Multi-layer Encoding</strong>: Information hidden at different conceptual levels</li>
+        <li><strong>Cross-referential Validation</strong>: Multiple documents containing pieces of larger puzzles</li>
+        <li><strong>Pedagogical Structure</strong>: Educational progressions embedded in seemingly historical documents</li>
+        <li><strong>Anachronism Markers</strong>: Subtle indicators for future researchers to identify preserved knowledge</li>
+    </ul>
+</div>
+
+---
+
+## 🎭 Character-Based Cipher Challenges
+
+Test your skills with ciphers inspired by specific characters from the novel:
+
+<div id="character-challenges" class="crypto-demo">
+    <h3>Character-Specific Cryptographic Challenges:</h3>
+    
+    <div class="character-challenge" id="sarah-challenge">
+        <h4>🕵️‍♀️ Sarah Chen's Pattern Recognition Test</h4>
+        <p><em>From Chapter 1 - Use detective-level analysis to find the hidden pattern:</em></p>
+        <div class="pattern-grid">
+            <div class="pattern-row">A C F J O U</div>
+            <div class="pattern-row">B E I N T</div>
+            <div class="pattern-row">D H M S</div>
+            <div class="pattern-row">G L R</div>
+            <div class="pattern-row">K Q</div>
+            <div class="pattern-row">P</div>
+        </div>
+        <div class="hint">💡 Hint: Look at the mathematical progression in each row</div>
+        
+        <input type="text" id="sarah-answer" placeholder="What's the pattern rule?">
+        <button onclick="checkCharacterChallenge('sarah')">Check Answer</button>
+        <div id="sarah-result" class="challenge-result"></div>
+    </div>
+    
+    <div class="character-challenge" id="marcus-challenge">
+        <h4>🧠 Dr. Marcus Webb's Psychological Cipher</h4>
+        <p><em>From Chapter 8 - Decode the manipulative message using psychological principles:</em></p>
+        <code>Trust builds slowly, breaks quickly. Understanding requires patience. Truth hides behind comfortable lies.</code>
+        <div class="hint">💡 Hint: Look at the first letter of each word that represents a psychological concept</div>
+        
+        <input type="text" id="marcus-answer" placeholder="Enter the hidden message">
+        <button onclick="checkCharacterChallenge('marcus')">Check Answer</button>
+        <div id="marcus-result" class="challenge-result"></div>
+    </div>
+    
+    <div class="character-challenge" id="hartwell-challenge">
+        <h4>⚛️ Dr. Hartwell's Quantum Cipher</h4>
+        <p><em>From Chapter 7 - Use quantum mechanical principles to decode this message:</em></p>
+        <div class="quantum-display">
+            <div class="quantum-state">|0⟩ |1⟩ |0⟩ |1⟩ |1⟩ |0⟩ |0⟩ |1⟩</div>
+            <div class="quantum-state">|1⟩ |0⟩ |1⟩ |0⟩ |0⟩ |1⟩ |1⟩ |0⟩</div>
+        </div>
+        <div class="hint">💡 Hint: Convert quantum states to binary, then to ASCII characters</div>
+        
+        <input type="text" id="hartwell-answer" placeholder="Enter the decoded message">
+        <button onclick="checkCharacterChallenge('hartwell')">Check Answer</button>
+        <div id="hartwell-result" class="challenge-result"></div>
+    </div>
+    
+    <div class="character-progress">
+        <h4>Character Challenge Progress:</h4>
+        <div id="character-progress-bar">
+            <div id="character-progress-fill" style="width: 0%"></div>
+        </div>
+        <p id="character-progress-text">0 of 3 character challenges completed</p>
+    </div>
+</div>
+
 <script src="../assets/js/cryptography-demo.js"></script>
 <link rel="stylesheet" href="../assets/css/cryptography-demo.css">
 
