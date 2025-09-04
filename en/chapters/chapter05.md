@@ -46,7 +46,43 @@ Marcus's expression showed genuine pain at her words. "Sarah, everything I taugh
 
 Marcus gestured to the wall display behind him. "The original Cipher Master of 1847 wasn't just a criminal, Sarah. He was a cryptographer centuries ahead of his time, someone who understood mathematical principles that wouldn't be formally discovered until the 20th century. Someone who created puzzles specifically designed to be unsolvable until technology and understanding caught up."
 
-Sarah's mind raced, connecting impossible pieces. "You're saying..."
+Sarah's mind raced, connecting impossible pieces. "You're saying the 1847 ciphers contained information from the future."
+
+"Not from the future," Marcus corrected. "To the future. The Cipher Master was receiving temporal communications from 2024—from us. The mathematical patterns your brother discovered weren't random; they were a carefully constructed communication system spanning nearly two centuries."
+
+The implications were staggering. Sarah felt her understanding of causality and time itself beginning to shift. "That's impossible. You're talking about time travel, about..."
+
+"Not time travel," Marcus interrupted. "Temporal communication. Information only, transmitted backward through quantum entanglement across temporal dimensions. The mathematics are complex, but your brother understood them. He figured out that the 1847 Cipher Master was receiving messages from the future and encoding them in puzzles that could only be solved when humanity developed sufficient mathematical sophistication."
+
+Emma Rodriguez spoke for the first time, her voice hoarse but determined. "Sarah, don't listen to him. I've seen their research facilities. They've been manipulating historical documents for decades, creating fake evidence to support this insane theory."
+
+"Emma's partially correct," Marcus acknowledged. "The Temporal Preservation Society has been manipulating historical records, but not to create evidence—to suppress it. The evidence of temporal communication has always existed. We've been hiding it to prevent premature revelation."
+
+## The Quantum Mathematics
+
+Marcus moved to a hidden panel in the tunnel wall, revealing sophisticated computer equipment that hummed with quiet power. "Your brother's final equation proved that quantum entanglement could transmit information backward through time under specific mathematical conditions. The 1847 Cipher Master was the first successful recipient of these transmissions."
+
+The display screen showed David's mathematical notations—equations Sarah recognized but had never fully understood. They described a form of quantum mechanics that seemed to violate everything she knew about physics.
+
+"The messages your brother decoded weren't random," Marcus continued. "They were instructions for preventing a catastrophic event in our timeline—something that would have occurred in 2024 if the Temporal Preservation Society hadn't been working to prevent it for the past 180 years."
+
+"What kind of catastrophic event?" Sarah demanded.
+
+Marcus turned to face her fully, his expression grave. "Complete societal collapse triggered by premature revelation of temporal communication technology. In the original timeline, humanity received proof of temporal communication in the 1920s. The psychological impact was devastating—religions collapsed, governments fell, and civilization destroyed itself within a decade."
+
+"The temporal communications from 2157 that we've been receiving contain warning after warning about the dangers of revealing temporal technology too early. The Temporal Preservation Society was founded specifically to manage the gradual revelation of this technology over a period of centuries, allowing humanity to develop the psychological and social maturity necessary to handle the knowledge responsibly."
+
+## The Moral Dilemma
+
+Professor Vasquez spoke up, her academic training overriding her fear. "Even if this is true—and I'm not saying I believe it—you have no right to make decisions for all of humanity. You're talking about a secret organization that has manipulated historical records, suppressed scientific advancement, and killed people to protect this secret."
+
+"Three people, Professor," Marcus said quietly. "Three people have died over 180 years to prevent the collapse of human civilization. Your brother David would have been the fourth, but we hoped to convince him instead. His impulsiveness made that impossible."
+
+Sarah felt the weight of implications crushing down on her. "You're saying David's death was necessary to prevent... what exactly?"
+
+"The complete revelation of temporal communication technology in 2021, which would have led to global panic, the collapse of organized religion, and nuclear war within six months. The temporal communications from 2157 were very specific about the sequence of events that would follow premature revelation."
+
+Marcus gestured to another wall display showing a complex timeline with branching possibilities. "Every major decision about temporal technology revelation has been carefully calculated to maximize humanity's chances of surviving the transition to temporal communication awareness. We're not the villains, Sarah. We're the guardians of human civilization."
 
 "The 1847 Cipher Master had access to knowledge that shouldn't have existed in the 19th century. Your brother proved it mathematically. The ciphers use quantum cryptographic principles, number theory that wasn't developed until the 1940s, and algorithmic concepts that required computer science to fully understand."
 
