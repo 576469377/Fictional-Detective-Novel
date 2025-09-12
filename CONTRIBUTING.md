@@ -48,6 +48,151 @@ We welcome contributions to this multilingual detective novel project! This guid
 ### 2. Choose Your Contribution
 - **For Writers**: Look for placeholder chapters or areas needing expansion
 - **For Translators**: Check for missing Chinese versions of documentation
+- **For Educators**: Help improve the cryptographic and educational content
+- **For Developers**: Enhance the web interface and interactive features
+
+### 3. Create Your Contribution
+- Fork the repository
+- Create a new branch for your changes
+- Make your improvements following the guidelines above
+- Test your changes thoroughly
+
+### 4. Submit Your Contribution
+- Create a clear, descriptive pull request
+- Include details about what you've changed and why
+- Be responsive to feedback and suggestions
+
+## 🎯 Priority Areas
+
+The following areas need the most attention:
+
+### High Priority
+- **Completing placeholder content** in documentation files
+- **Improving cryptographic accuracy** in educational materials
+- **Enhancing Chinese translations** for better cultural adaptation
+- **Expanding character development** and backstories
+
+### Medium Priority
+- **Adding interactive JavaScript functionality** for demos
+- **Creating additional educational materials** (study guides, references)
+- **Improving web interface design** and user experience
+- **Adding more detailed location descriptions** and setting development
+
+### Low Priority
+- **Creating supplementary materials** (character portraits, maps)
+- **Adding multimedia elements** (audio, video content)
+- **Developing mobile app versions** or enhanced PWA features
+- **Creating academic companion materials** for educational use
+
+## 📖 Style Guide
+
+### Writing Style
+- **Tone**: Professional yet engaging, suitable for both entertainment and education
+- **Perspective**: Third person limited (primarily following Sarah Chen)
+- **Tense**: Past tense for narrative, present tense for analysis and explanations
+- **Length**: Aim for substantial, detailed chapters (2000+ words)
+
+### Cryptographic Content
+- **Accuracy**: All cryptographic methods must be historically and technically accurate
+- **Education**: Include explanations that teach real cryptographic principles
+- **Context**: Connect cryptographic techniques to plot development
+- **Accessibility**: Make complex concepts understandable to general readers
+
+### Character Development
+- **Consistency**: Maintain character voices and personalities across chapters
+- **Growth**: Show character development through the investigation
+- **Relationships**: Develop realistic professional and personal relationships
+- **Expertise**: Ensure character expertise matches their backgrounds
+
+### Cultural Sensitivity
+- **Translations**: Chinese versions should be culturally appropriate, not literal
+- **Names**: Maintain consistency in character name translations
+- **Context**: Adapt cultural references appropriately for different audiences
+- **Respect**: Treat all cultures and backgrounds with respect and accuracy
+
+## 🛠️ Technical Requirements
+
+### File Structure
+```
+/en/                    # English content
+  /chapters/           # Chapter files (chapter##.md)
+  /index.md           # English main page
+/zh/                    # Chinese content  
+  /chapters/           # Chinese chapter files
+  /index.md           # Chinese main page
+/docs/                  # Documentation and guides
+/assets/                # CSS, JavaScript, images
+  /css/               # Stylesheets
+  /js/                # JavaScript files
+  /images/            # Image assets
+```
+
+### Markdown Standards
+- Use proper heading hierarchy (# ## ### ####)
+- Include navigation links ([← Previous](link) | [Next →](link))
+- Add language-appropriate file encoding (UTF-8)
+- Follow consistent formatting for dialogue, emphasis, and technical terms
+
+### Link Management
+- Use relative links for internal navigation
+- Ensure links work correctly across language versions
+- Update navigation when adding new content
+- Test all links after making changes
+
+## 🌐 Multilingual Guidelines
+
+### English Content
+- **Audience**: International English-speaking readers
+- **Style**: Clear, professional, accessible to non-native speakers
+- **Technical terms**: Define cryptographic terms when first introduced
+- **Cultural references**: Use internationally recognizable examples
+
+### Chinese Content
+- **Audience**: Chinese-speaking readers (primarily Simplified Chinese)
+- **Style**: Maintain engaging narrative while using appropriate formal register
+- **Technical terms**: Use established Chinese cryptographic terminology
+- **Cultural adaptation**: Adapt cultural references to Chinese context when appropriate
+
+### Translation Process
+1. **Translate for meaning**, not word-for-word accuracy
+2. **Maintain narrative flow** and character voice
+3. **Adapt cultural elements** appropriately
+4. **Verify technical accuracy** of cryptographic terms
+5. **Review for consistency** with existing translations
+
+## 🤝 Code of Conduct
+
+### Community Standards
+- **Respectful communication**: Treat all contributors with respect
+- **Constructive feedback**: Provide helpful, specific suggestions
+- **Collaborative spirit**: Work together to improve the project
+- **Educational focus**: Remember this is an educational resource
+
+### Content Standards
+- **Family-friendly**: Keep content appropriate for educational settings
+- **Factual accuracy**: Ensure all educational content is accurate
+- **No plagiarism**: Only contribute original work or properly attributed content
+- **Professional quality**: Maintain high standards for all contributions
+
+## 📞 Getting Help
+
+### Resources
+- **Project Documentation**: Read the [Project Documentation](project-documentation.md)
+- **Character Guide**: Review [Character Profiles](character-profiles-en.md)
+- **Timeline**: Check the [Interactive Timeline](timeline-interactive.md)
+- **Cryptography Guide**: Study the [Cryptography Guide](cryptography-guide-en.md)
+
+### Contact
+- **Issues**: Report problems through GitHub Issues
+- **Questions**: Use GitHub Discussions for questions
+- **Suggestions**: Propose improvements through Issues or Discussions
+- **Collaboration**: Reach out to maintainers for major contributions
+
+---
+
+Thank you for contributing to "The Crimson Cipher"! Your efforts help create a valuable educational resource that combines engaging storytelling with authentic cryptographic education.
+
+[← Back to Main](README.md) | [Project Documentation →](docs/project-documentation.md)
 - **For Technical Contributors**: Review cryptographic content and documentation
 
 ### 3. Make Your Changes

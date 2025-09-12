@@ -119,6 +119,61 @@ Test your cryptography skills with these puzzles from the novel:
 <div id="crypto-challenges" class="crypto-demo">
     <h3>Solve the Detective's Puzzles:</h3>
     
+    <div class="challenge-set">
+        <h4>Challenge 1: The First Message</h4>
+        <p>Decode this Caesar cipher with a shift of 13 (ROT13):</p>
+        <div class="challenge-cipher">GURER VF ABG ZHPU GVZR YRSG</div>
+        <input type="text" id="challenge1-answer" placeholder="Enter your answer">
+        <button onclick="checkAnswer(1)">Check Answer</button>
+        <div id="challenge1-result" class="challenge-result"></div>
+    </div>
+    
+    <div class="challenge-set">
+        <h4>Challenge 2: Historical Pattern</h4>
+        <p>This Vigenère cipher uses the key "CRIMSON". Can you decode it?</p>
+        <div class="challenge-cipher">EEXA GPRH QJSM OYDA</div>
+        <input type="text" id="challenge2-answer" placeholder="Enter your answer">
+        <button onclick="checkAnswer(2)">Check Answer</button>
+        <div id="challenge2-result" class="challenge-result"></div>
+    </div>
+    
+    <div class="challenge-set">
+        <h4>Challenge 3: Hidden Location</h4>
+        <p>Use frequency analysis on this substitution cipher:</p>
+        <div class="challenge-cipher">WKH ZDUHKRXVH LV KLGGHQ LQ WKH VKDGRZV</div>
+        <input type="text" id="challenge3-answer" placeholder="Enter your answer">
+        <button onclick="checkAnswer(3)">Check Answer</button>
+        <div id="challenge3-result" class="challenge-result"></div>
+    </div>
+</div>
+
+---
+
+## 📖 Study Guide
+
+### Cryptographic Methods in The Crimson Cipher
+
+#### Basic Substitution Ciphers
+- **Definition**: Each letter is replaced by another letter according to a fixed rule
+- **Examples**: Caesar cipher, Atbash cipher, custom substitution
+- **Breaking Method**: Frequency analysis, looking for common patterns
+
+#### Polyalphabetic Ciphers
+- **Definition**: Uses multiple substitution alphabets to encrypt message
+- **Examples**: Vigenère cipher, Beaufort cipher, Jefferson Disk
+- **Breaking Method**: Key length analysis, coincidence counting
+
+#### Steganography
+- **Definition**: Hiding messages within other messages or images
+- **Examples**: Invisible ink, microdots, digital image hiding
+- **Detection Method**: Statistical analysis, visual inspection
+
+#### Modern Applications
+- **Symmetric Encryption**: Both parties use same key (AES, DES)
+- **Asymmetric Encryption**: Different keys for encryption/decryption (RSA)
+- **Hash Functions**: One-way functions for data integrity (SHA-256)
+- **Digital Signatures**: Authenticity and non-repudiation
+    
     <div class="challenge" id="challenge-1">
         <h4>Challenge 1: The First Message</h4>
         <p><em>From Chapter 1 - Decrypt Sarah's first cipher (Caesar cipher with shift 3):</em></p>
