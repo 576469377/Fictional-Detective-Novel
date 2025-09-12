@@ -1,4 +1,4 @@
-# Epilogue: Patterns in Time
+# Chapter 13: Patterns in Time
 ## Six Months After the Revelation
 
 [← Previous Chapter](chapter12.md) | [Back to Index](../index.md)

@@ -155,6 +155,222 @@
 
 ---
 
+## 🔍 Advanced Search Features
+
+### Search Syntax Guide
+
+Use these advanced search operators to find exactly what you're looking for:
+
+<div class="search-syntax">
+    <div class="syntax-section">
+        <h4>🎯 Exact Phrases</h4>
+        <code>"cipher wheel"</code> - Find exact phrase matches
+        <p><em>Example: "temporal anomaly" finds documents containing this exact phrase</em></p>
+    </div>
+    
+    <div class="syntax-section">
+        <h4>🔗 Boolean Operators</h4>
+        <code>sarah AND marcus</code> - Find documents containing both terms<br>
+        <code>cipher OR cryptography</code> - Find documents containing either term<br>
+        <code>mystery NOT historical</code> - Find documents with first term but not second
+        <p><em>Example: "cryptography AND education" finds educational cryptographic content</em></p>
+    </div>
+    
+    <div class="syntax-section">
+        <h4>🎭 Character Searches</h4>
+        <code>character:sarah</code> - Find content related to specific character<br>
+        <code>character:marcus</code> - Focus on Dr. Marcus Webb content<br>
+        <code>character:emma</code> - Emma Rodriguez related content
+        <p><em>Example: "character:hartwell quantum" finds Dr. Hartwell's quantum research</em></p>
+    </div>
+    
+    <div class="syntax-section">
+        <h4>📖 Chapter-Specific</h4>
+        <code>chapter:03</code> - Search within specific chapter<br>
+        <code>chapter:07-09</code> - Search chapter range<br>
+        <code>chapter:finale</code> - Search concluding chapters
+        <p><em>Example: "chapter:05 conspiracy" finds conspiracy content in Chapter 5</em></p>
+    </div>
+    
+    <div class="syntax-section">
+        <h4>🌐 Language Filtering</h4>
+        <code>lang:en</code> - English content only<br>
+        <code>lang:zh</code> - Chinese content only<br>
+        <code>lang:both</code> - Show both language versions
+        <p><em>Example: "caesar cipher lang:zh" finds Chinese cryptography content</em></p>
+    </div>
+</div>
+
+### Smart Search Suggestions
+
+The search system provides intelligent suggestions based on content analysis:
+
+<div class="smart-suggestions">
+    <h4>📊 Popular Search Terms</h4>
+    <div class="suggestion-tags" id="popular-tags">
+        <span class="suggestion-tag" data-search="cipher wheel">cipher wheel</span>
+        <span class="suggestion-tag" data-search="sarah chen">sarah chen</span>
+        <span class="suggestion-tag" data-search="temporal anomaly">temporal anomaly</span>
+        <span class="suggestion-tag" data-search="frequency analysis">frequency analysis</span>
+        <span class="suggestion-tag" data-search="1847 case">1847 case</span>
+        <span class="suggestion-tag" data-search="marcus webb">marcus webb</span>
+        <span class="suggestion-tag" data-search="cryptography">cryptography</span>
+        <span class="suggestion-tag" data-search="investigation">investigation</span>
+    </div>
+    
+    <h4>🔗 Related Topics</h4>
+    <div class="related-topics" id="related-topics">
+        <div class="topic-group">
+            <strong>Cryptographic Methods:</strong>
+            <span class="topic-tag">caesar cipher</span>
+            <span class="topic-tag">substitution cipher</span>
+            <span class="topic-tag">vigenere cipher</span>
+            <span class="topic-tag">steganography</span>
+        </div>
+        
+        <div class="topic-group">
+            <strong>Investigation Elements:</strong>
+            <span class="topic-tag">crime scene</span>
+            <span class="topic-tag">evidence analysis</span>
+            <span class="topic-tag">pattern recognition</span>
+            <span class="topic-tag">psychological profile</span>
+        </div>
+        
+        <div class="topic-group">
+            <strong>Historical Context:</strong>
+            <span class="topic-tag">1847 mystery</span>
+            <span class="topic-tag">preservation society</span>
+            <span class="topic-tag">temporal research</span>
+            <span class="topic-tag">document analysis</span>
+        </div>
+    </div>
+</div>
+
+---
+
+## 📈 Search Analytics
+
+Track your reading progress and popular content:
+
+<div id="search-analytics" class="analytics-section">
+    <h3>📊 Content Statistics</h3>
+    
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-number">12</div>
+            <div class="stat-label">Complete Chapters</div>
+            <div class="stat-detail">Available in English & Chinese</div>
+        </div>
+        
+        <div class="stat-card">
+            <div class="stat-number">26,000+</div>
+            <div class="stat-label">Total Words</div>
+            <div class="stat-detail">Across both languages</div>
+        </div>
+        
+        <div class="stat-card">
+            <div class="stat-number">15+</div>
+            <div class="stat-label">Documentation Files</div>
+            <div class="stat-detail">Guides, profiles, references</div>
+        </div>
+        
+        <div class="stat-card">
+            <div class="stat-number">50+</div>
+            <div class="stat-label">Interactive Elements</div>
+            <div class="stat-detail">Demos, challenges, tools</div>
+        </div>
+    </div>
+    
+    <div class="reading-progress">
+        <h4>📖 Your Reading Progress</h4>
+        <div class="progress-track">
+            <div class="progress-section">
+                <span class="progress-label">Chapters Read:</span>
+                <div class="progress-bar">
+                    <div id="chapter-progress" class="progress-fill" style="width: 0%"></div>
+                </div>
+                <span id="chapter-count">0 of 12</span>
+            </div>
+            
+            <div class="progress-section">
+                <span class="progress-label">Documentation Explored:</span>
+                <div class="progress-bar">
+                    <div id="docs-progress" class="progress-fill" style="width: 0%"></div>
+                </div>
+                <span id="docs-count">0 of 15</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+---
+
+## 🔧 Search Customization
+
+Personalize your search experience:
+
+<div id="search-preferences" class="preferences-section">
+    <h3>⚙️ Search Preferences</h3>
+    
+    <div class="preference-group">
+        <label class="preference-label">
+            <input type="checkbox" id="pref-auto-complete" checked>
+            Enable Auto-complete Suggestions
+        </label>
+        <p class="preference-description">Show search suggestions as you type</p>
+    </div>
+    
+    <div class="preference-group">
+        <label class="preference-label">
+            <input type="checkbox" id="pref-search-history" checked>
+            Save Search History
+        </label>
+        <p class="preference-description">Remember your recent searches for quick access</p>
+    </div>
+    
+    <div class="preference-group">
+        <label class="preference-label">
+            <input type="checkbox" id="pref-reading-progress">
+            Track Reading Progress
+        </label>
+        <p class="preference-description">Monitor which chapters and documents you've read</p>
+    </div>
+    
+    <div class="preference-group">
+        <label class="preference-label">Default Language:</label>
+        <select id="pref-default-language">
+            <option value="both">Both Languages</option>
+            <option value="en">English Only</option>
+            <option value="zh">Chinese Only</option>
+        </select>
+        <p class="preference-description">Choose your preferred language for search results</p>
+    </div>
+    
+    <div class="preference-group">
+        <label class="preference-label">Results Per Page:</label>
+        <select id="pref-results-count">
+            <option value="10">10 Results</option>
+            <option value="20" selected>20 Results</option>
+            <option value="50">50 Results</option>
+        </select>
+        <p class="preference-description">Number of search results to display per page</p>
+    </div>
+    
+    <button id="save-preferences" class="preference-button">Save Preferences</button>
+    <button id="reset-preferences" class="preference-button secondary">Reset to Defaults</button>
+</div>
+
+<script src="../assets/js/content-search.js"></script>
+<link rel="stylesheet" href="../assets/css/content-search.css">
+
+[← Back to Main](../README.md) | [Project Documentation →](project-documentation.md)
+            </div>
+        </div>
+    </div>
+</div>
+
+---
+
 ## 📊 Content Statistics
 
 <div id="content-statistics" class="content-stats">
